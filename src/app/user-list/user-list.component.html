@@ -1,9 +1,28 @@
+<div class="line">
+  <mat-form-field appearance="outline">
+    <mat-label>Sorted</mat-label>
+    <mat-select #list (selectionChange)="sort(list.value)">
+      <mat-option value = "0">from A to Z</mat-option>
+      <mat-option value = "1">from Z to A</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Search" #searcher
+           (keyup.enter)="search(searcher.value)"
+            [(ngModel)]="searchStr">
+    <mat-icon matSuffix (click)="search(searcher.value)">search</mat-icon>
+  </mat-form-field>
+</div>
+
+
 <mat-selection-list #users>
-  <mat-list-option *ngFor="let user of usersList; let i = index"
+  <mat-list-option *ngFor="let user of usersList | search:searchStr; let i = index"
   [ngClass]="{'gray': i%2}">
    <div>
-     <span class="item">{{user.name}}</span>
      <span class="item">{{user.username}}</span>
+     <span class="item">{{user.name}}</span>
      <span *ngIf="user.role === 'Admin'" class="item">{{user.role}}</span>
    </div>
   </mat-list-option>
