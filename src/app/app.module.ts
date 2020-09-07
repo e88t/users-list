@@ -10,8 +10,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SearchPipe } from './shared/search.pipe';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { SearchPipe } from './shared/search.pipe';
     MatSelectModule,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
